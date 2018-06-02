@@ -9,229 +9,256 @@ import {CharaData} from './data/CharaData';
 export class HomePage {
 
   private dataList: CharaData[];
+  private dataMap: { [key: string]: CharaData; };
 
   private data = {
     '神フェリヤ': {
-      'id' : 'god-feriya',
+      'id': 'god-feriya',
       'select': true,
+      'base' : 'feriya',
       'list': [
         {
-          'id': '神の守護者',
+          'id': 'god-guardian',
           'num': 2
         },
         {
-          'id': '魔の守護者',
+          'id': 'evil-guardian',
           'num': 1
         },
         {
-          'id': '竜の守護者',
+          'id': 'dragon-guardian',
           'num': 1
         }
       ]
     },
     '魔フェリヤ': {
-      'id' : 'evil-feriya',
+      'id': 'evil-feriya',
       'select': true,
+      'base' : 'feriya',
       'list': [
         {
-          'id': '神の守護者',
+          'id': 'god-guardian',
           'num': 1
         },
         {
-          'id': '魔の守護者',
+          'id': 'evil-guardian',
           'num': 2
         },
         {
-          'id': '竜の守護者',
+          'id': 'dragon-guardian',
           'num': 1
         }
       ]
     },
     '竜フェリヤ': {
-      'id' : 'dragon-feriya',
+      'id': 'dragon-feriya',
       'select': true,
+      'base' : 'feriya',
       'list': [
         {
-          'id': '神の守護者',
+          'id': 'god-guardian',
           'num': 1
         },
         {
-          'id': '魔の守護者',
+          'id': 'evil-guardian',
           'num': 1
         },
         {
-          'id': '竜の守護者',
+          'id': 'dragon-guardian',
           'num': 2
         }
       ]
     },
     '神の守護者': {
-      'id' : 'god-guardian',
+      'id': 'god-guardian',
       'select': true,
+      'base': 'guardian',
       'list': [
         {
-          'id': 'アルキメデス',
+          'id': 'archimedes',
           'num': 2
         },
         {
-          'id': 'カルディア',
+          'id': 'cardia',
           'num': 2
         },
         {
-          'id': '闘化ムーニア',
+          'id': 'fight-munia',
           'num': 2
         }
       ]
     },
     '魔の守護者': {
-      'id' : 'evil-guardian',
+      'id': 'evil-guardian',
       'select': true,
-      'base': '心核の守護者',
+      'base': 'guardian',
       'list': [
         {
-          'id': '心核の守護者',
+          'id': 'guardian',
           'num': 1
         },
         {
-          'id': 'アルキメデス',
-          'num': 2
+          'id': 'archimedes',
+          'num': 3
         },
         {
-          'id': 'カルディア',
-          'num': 2
+          'id': 'ca',
+          'num': 3
         },
         {
-          'id': '闘化グエリアス',
+          'id': 'fight-branjetta',
           'num': 2
         }
       ]
     },
     '竜の守護者': {
-      'id' : 'dragon-guardian',
+      'id': 'dragon-guardian',
       'select': true,
+      'base': 'guardian',
       'list': [
         {
-          'id': '曹操',
-          'num': 2
+          'id': 'caocao',
+          'num': 3
         },
         {
-          'id': 'テレジア',
-          'num': 2
+          'id': 'theresia',
+          'num': 3
         },
         {
-          'id': '闘化グエリアス',
+          'id': 'fight-guelius',
           'num': 2
         }
       ]
     },
     '闘化ムーニア': {
-      'id' : 'fight-munia',
-      'select': true,
+      'id': 'fight-munia',
+      'select': false,
       'comment': '進化ムーニアから闘化した場合の素材数です。',
       'list': [
         {
-          'id': 'ダイアカーバンクル',
+          'id': 'diamond-carbuncle',
           'num': 2
         },
         {
-          'id': 'ダイアカーバンクル',
-          'num': 2
+          'id': 'platinum-carbuncle',
+          'num': 3
+        },
+        {
+          'id': 'god-soul',
+          'num': 3
+        },
+        {
+          'id': 'archimedes',
+          'num': 1
         }
       ]
     },
     '闘化ブランジェッタ': {
-      'id' : 'fight-branjetta',
-      'select': true,
-      'comment': '進化ブランジェッタから當化シた場合の素材数です。',
+      'id': 'fight-branjetta',
+      'select': false,
+      'base': 'branjetta',
+      'comment': '進化ブランジェッタから闘化した場合の素材数です。',
       'list': [
         {
-          'id': 'ダイアカーバンクル',
+          'id': 'diamond-carbuncle',
           'num': 2
         },
         {
-          'id': 'プラチナカーバンクル',
-          'num': 2
+          'id': 'platinum-carbuncle',
+          'num': 3
         },
         {
-          'id': '魔の闘素材',
-          'num': 2
+          'id': 'evil-soul',
+          'num': 3
+        },
+        {
+          'id': 'moruana',
+          'num': 1
         }
       ]
     },
     '闘化グエリアス': {
-      'id' : 'fight-guelius',
-      'select': true,
+      'id': 'fight-guelius',
+      'select': false,
       'comment': '進化グエリアスから闘化した場合の素材数です。',
-      'base': 'グエリアス',
+      'base': 'guelius',
       'list': [
         {
-          'id': 'ダイアカーバンクル',
+          'id': 'diamond-carbuncle',
           'num': 2
         },
         {
-          'id': 'ダイアカーバンクル',
-          'num': 2
+          'id': 'platinum-carbuncle',
+          'num': 3
+        },
+        {
+          'id': 'dragon-soul',
+          'num': 3
+        },
+        {
+          'id': 'theresia',
+          'num': 1
         }
       ]
     },
     'アルキメデス': {
-      'id' : 'archimedes',
+      'id': 'archimedes',
       'how': '絶望決戦'
     },
     'カルディア': {
-      'id' : 'cardia',
+      'id': 'cardia',
       'how': '絶望決戦'
     },
     '六条御息所': {
-      'id' : 'rokujo',
+      'id': 'rokujo',
       'how': '絶望決戦'
     },
     'シャイターン': {
-      'id' : 'shyturn',
+      'id': 'shyturn',
       'how': '絶望決戦'
     },
     '曹操': {
-      'id' : 'caocao',
+      'id': 'caocao',
       'how': '絶望決戦'
     },
     'テレジア': {
-      'id' : 'theresia',
+      'id': 'theresia',
       'how': '絶望決戦'
     },
     'ゴッドソウル': {
-      'id' : 'god-soul',
+      'id': 'god-soul',
       'how': 'バトルコイン',
-      'battle-coin': 20
+      'battleCoin': 20
     },
     'エビルソウル': {
-      'id' : 'evil-soul',
+      'id': 'evil-soul',
       'how': 'バトルコイン',
-      'battle-coin': 20
+      'battleCoin': 20
     },
     'ドラゴソウル': {
-      'id' : 'dragon-soul',
+      'id': 'dragon-soul',
       'how': 'バトルコイン',
-      'battle-coin': 20
+      'battleCoin': 20
     },
     'プラチナカーバンクル': {
-      'id' : 'platinum-carbuncle',
+      'id': 'platinum-carbuncle',
       'how': 'バトルコイン',
-      'battle-coin': 100
+      'battleCoin': 100
     },
     'ムーニア': {
-      'id' : 'munia',
+      'id': 'munia',
       'how': 'バトルコイン',
-      'battle-coin': 100
+      'battleCoin': 100
     },
     'ブランジェッタ': {
-      'id' : 'branjetta',
+      'id': 'branjetta',
       'how': 'バトルコイン',
-      'battle-coin': 100
+      'battleCoin': 100
     },
     'グエリアス': {
-      'id' : 'guelius',
+      'id': 'guelius',
       'how': 'バトルコイン',
-      'battle-coin': 100
+      'battleCoin': 100
     }
   };
 
@@ -240,6 +267,8 @@ export class HomePage {
 
   constructor() {
     this.dataList = [];
+    this.dataMap = {};
+
     console.log(this.data);
     for (const key in this.data) {
       console.log(key);
@@ -249,7 +278,12 @@ export class HomePage {
         obj.name = key;
         obj.id = raw.id;
         obj.list = raw.list;
+        obj.how = raw.how;
+        obj.base = raw.base;
+        obj.battleCoin = raw.battleCoin;
         this.dataList.push(obj);
+
+        this.dataMap[obj.id] = obj;
       }
     }
   }
