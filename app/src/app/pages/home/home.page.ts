@@ -8,8 +8,8 @@ import {CharaData} from './data/CharaData';
 })
 export class HomePage {
 
-  private dataList: CharaData[];
-  private dataMap: { [key: string]: CharaData; };
+  public dataList: CharaData[];
+  public dataMap: { [key: string]: CharaData; };
 
   private data = {
     '神フェリヤ': {
