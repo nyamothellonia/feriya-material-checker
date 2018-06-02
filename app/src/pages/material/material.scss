@@ -1,0 +1,25 @@
+page-material {
+  ion-item {
+    padding: 0;
+
+    ion-thumbnail {
+      margin-top: 0;
+      margin-bottom: 0;
+
+    }
+    img {
+      display: block;
+      width: 90px;
+      height: 76.5px;
+    }
+  }
+
+  .item ion-thumbnail {
+    min-width: 5rem;
+    min-height: 5rem;
+    img {
+      width: calc(306px / 4);
+      height: calc(270px / 4);
+    }
+  }
+}

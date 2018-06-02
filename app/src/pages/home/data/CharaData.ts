@@ -4,7 +4,8 @@ export class CharaData {
   public how?: string;
   public battleCoin?: number;
   public comment?: string;
-  public list?: { name: string, num: number }[];
+  public list?: CharaData[];
   public select?: boolean;
-  public base?: boolean;
+  public base?: CharaData;
+  public num: number;
 }
