@@ -1,6 +1,6 @@
 {
-  "name": "feriya-material-checker",
+  "name": "app",
   "app_id": "",
-  "type": "angular",
+  "type": "ionic-angular",
   "integrations": {}
 }

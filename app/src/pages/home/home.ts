@@ -1,12 +1,36 @@
-import {Component} from '@angular/core';
-import {CharaData} from './data/CharaData';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { CharaData } from './data/CharaData';
 
 @Component({
-  selector: 'app-page-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 export class HomePage {
+
+  constructor(public navCtrl: NavController) {
+
+    this.dataList = [];
+    this.dataMap = {};
+
+    console.log(this.data);
+    for (const key in this.data) {
+      console.log(key);
+      if (this.data[key].select) {
+        const obj = new CharaData();
+        const raw = this.data[key];
+        obj.name = key;
+        obj.id = raw.id;
+        obj.list = raw.list;
+        obj.how = raw.how;
+        obj.base = raw.base;
+        obj.battleCoin = raw.battleCoin;
+        this.dataList.push(obj);
+
+        this.dataMap[obj.id] = obj;
+      }
+    }
+  }
 
   public dataList: CharaData[];
   public dataMap: { [key: string]: CharaData; };
@@ -265,26 +289,4 @@ export class HomePage {
   ionViewDidEnter() {
   }
 
-  constructor() {
-    this.dataList = [];
-    this.dataMap = {};
-
-    console.log(this.data);
-    for (const key in this.data) {
-      console.log(key);
-      if (this.data[key].select) {
-        const obj = new CharaData();
-        const raw = this.data[key];
-        obj.name = key;
-        obj.id = raw.id;
-        obj.list = raw.list;
-        obj.how = raw.how;
-        obj.base = raw.base;
-        obj.battleCoin = raw.battleCoin;
-        this.dataList.push(obj);
-
-        this.dataMap[obj.id] = obj;
-      }
-    }
-  }
 }
