@@ -11,6 +11,10 @@ fs.readdir('./tmp-image', function (err, files) {
 
     files.forEach((itemPath) => {
         const imgBuffer = fs.readFileSync('./tmp-image/' + itemPath);
+
+        if (!itemPath.includes('.png')) {
+            return;
+        }
         console.log(itemPath);
 
         PNGCrop.cropToStream(imgBuffer, config, function (err, outputStream) {
