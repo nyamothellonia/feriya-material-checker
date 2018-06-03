@@ -8,4 +8,7 @@ export class CharaData {
   public select?: boolean;
   public base?: string;
   public num: number;
+  public parent?: boolean;
+  public type?: string;
+
 }

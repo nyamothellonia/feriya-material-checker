@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {CharaData} from '../data/CharaData';
 import {MaterialData} from '../data/MaterialData';
+import {MaterialType} from '../type/MaterialType';
 
 
 /**
@@ -25,9 +26,13 @@ export class MaterialPage {
   public baseId: string;
   public dataMap: { [key: string]: CharaData; };
 
-  public base: { id: string, name: string, num: number, how?: string };
-  public listMap: { [key: string]: { id: string, name: string, num: number, how?: string } };
-  public list: { id: string, name: string, num: number, how?: string }[];
+  public base: CharaData;
+  public listMap: { [key: string]: CharaData };
+  public list: CharaData[];
+
+  public TYPE_PARENT: string = MaterialType.TYPE_PARENT;
+  public TYPE_BATTLE_COIN: string = MaterialType.TYPE_BATTLE_COIN;
+  public TYPE_NOT_BATTLE_COIN: string = MaterialType.TYPE_NOT_BATTLE_COIN;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -40,34 +45,48 @@ export class MaterialPage {
     this.list = [];
     this.base = {id: baseObj.id, name: baseObj.name, num: 1};
 
-    this.addMaterialList(this.base.id, 1);
+    this.addMaterialList(this.base.id, 1, true);
 
+    for (let i = 0; i < this.list.length; i++) {
+      const listData = this.list[i];
+      if (listData.how === 'バトルコイン') {
+        const data = this.dataMap[listData.id];
+        listData.battleCoin = data.battleCoin;
+      }
+
+    }
     console.log('materialList');
     console.log(this.list);
   }
 
-  private addMaterialList(id: string, num: number) {
+  private addMaterialList(id: string, num: number, start: boolean) {
 
-    var data = this.dataMap[id];
+    const data = this.dataMap[id];
 
-    this.addListNum(id);
+    if (!start) {
+      this.addListNum(id);
+    }
 
     if (data.how) {
-      var map = this.listMap[id];
+      const map = this.listMap[id];
       console.log('how', id, data.how, map.num, num);
       map.num += num;
     } else {
-      var baseId = data.base;
+      if (!start) {
+        const map = this.listMap[id];
+        map.num += num;
+      }
+      const baseId = data.base;
       if (baseId) {
         console.log('base', baseId, num);
         this.addListNum(baseId);
-        this.addMaterialList(baseId, num);
+        this.addMaterialList(baseId, num, false);
       }
       if (data.list) {
         console.log('list', data.list);
         for (let j: number = 0; j < data.list.length; j++) {
           const child = data.list[j];
-          this.addMaterialList(child.id, child.num * num);
+          this.addMaterialList(child.id, child.num * num, false);
         }
       }
     }
@@ -92,6 +111,12 @@ export class MaterialPage {
       num: 0,
       how: data.how
     };
+    if (data.list) {
+      this.listMap[id].parent = true;
+      this.listMap[id].type = MaterialType.TYPE_PARENT;
+    } else {
+      this.listMap[id].type = data.battleCoin ? MaterialType.TYPE_BATTLE_COIN : MaterialType.TYPE_NOT_BATTLE_COIN;
+    }
     this.list.push(this.listMap[id]);
   }
 }

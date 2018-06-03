@@ -6,10 +6,15 @@
 <ion-content padding>
   <ion-list>
     <ion-item class="button" *ngFor="let item of dataList;" (click)="onClick(item)">
-      <ion-thumbnail item-start>
-        <img [src]="'./assets/chara-image-icon/'+item.id + '.png'">
-      </ion-thumbnail>
-      <h2>{{item.name}}</h2>
+      <div class="flex-container">
+        <ion-thumbnail item-start>
+          <img [src]="'./assets/chara-image-icon/'+item.id + '.png'">
+        </ion-thumbnail>
+        <div>{{item.name}}</div>
+        <div>
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </div>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>

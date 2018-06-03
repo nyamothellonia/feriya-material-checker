@@ -197,9 +197,9 @@ export class MaterialData {
     },
     '闘化ムーニア': {
       'id': 'fight-munia',
-      'select': false,
+      'select': true,
       'base': 'munia',
-      'comment': '進化ムーニアから闘化した場合の素材数です。',
+      'comment': '闘化ムーニアの素材は進化ムーニアから闘化した場合の素材数です。',
       'list': [
         {
           'id': 'diamond-carbuncle',
@@ -221,9 +221,9 @@ export class MaterialData {
     },
     '闘化ブランジェッタ': {
       'id': 'fight-branjetta',
-      'select': false,
+      'select': true,
       'base': 'branjetta',
-      'comment': '進化ブランジェッタから闘化した場合の素材数です。',
+      'comment': '闘化ブランジェッタの素材は進化ブランジェッタから闘化した場合の素材数です。',
       'list': [
         {
           'id': 'diamond-carbuncle',
@@ -245,8 +245,8 @@ export class MaterialData {
     },
     '闘化グエリアス': {
       'id': 'fight-guelius',
-      'select': false,
-      'comment': '進化グエリアスから闘化した場合の素材数です。',
+      'select': true,
+      'comment': '闘化グエリアスの素材数は進化グエリアスから闘化した場合です。',
       'base': 'guelius',
       'list': [
         {
@@ -318,7 +318,7 @@ export class MaterialData {
     'プラチナカーバンクル': {
       'id': 'platinum-carbuncle',
       'how': 'バトルコイン',
-      'battleCoin': 100
+      'battleCoin': 80
     },
     'ムーニア': {
       'id': 'munia',
