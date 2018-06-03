@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {CharaData} from '../data/CharaData';
 import {MaterialData} from '../data/MaterialData';
 
