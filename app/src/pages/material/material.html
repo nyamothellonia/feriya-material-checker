@@ -10,17 +10,34 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item *ngFor="let item of list;">
-      <ion-thumbnail item-start>
-        <img [src]="'./assets/chara-image-icon/'+item.id + '.png'">
-      </ion-thumbnail>
+    <ion-item *ngFor="let item of list;"  text-wrap>
+      <div class="flex-container">
+        <ion-thumbnail item-start>
+          <img [src]="'./assets/chara-image-icon/'+item.id + '.png'">
+        </ion-thumbnail>
 
-      <div [ngSwitch]="item.type">
-        <h2  *ngSwitchCase="TYPE_PARENT">{{item.name}}({{item.how}}×{{item.num}})※</h2>
-        <h2  *ngSwitchCase="TYPE_BATTLE_COIN">{{item.name}}({{item.how}}{{item.battleCoin}}×{{item.num}})</h2>
-        <h2  *ngSwitchCase="TYPE_NOT_BATTLE_COIN">{{item.name}}({{item.how}}×{{item.num}})</h2>
+        <div [ngSwitch]="item.type">
+          <div *ngSwitchCase="TYPE_PARENT">
+            {{item.name}} ×{{item.num}} ※
+            <p>
+              <small>{{item.childList}}</small>
+            </p>
+          </div>
+          <div *ngSwitchCase="TYPE_BATTLE_COIN">
+            {{item.name}} ×{{item.num}}
+            <p>
+              <small>{{item.battleCoin}} {{item.how}}</small>
+            </p>
+          </div>
+          <div *ngSwitchCase="TYPE_NOT_BATTLE_COIN">{{item.name}} ×{{item.num}}
+            <p>
+              <small>{{item.how}}</small>
+            </p>
+          </div>
+        </div>
+        <div>
+        </div>
       </div>
-
     </ion-item>
   </ion-list>
   <div>

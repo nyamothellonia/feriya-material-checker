@@ -130,20 +130,20 @@ export class MaterialData {
       'base': 'guardian',
       'list': [
         {
-          'id': 'archimedes',
-          'num': 2
-        },
-        {
-          'id': 'cardia',
-          'num': 2
+          'id': 'guardian',
+          'num': 1
         },
         {
           'id': 'fight-munia',
           'num': 2
         },
         {
-          'id' : 'guardian',
-          'num' : 1
+          'id': 'archimedes',
+          'num': 2
+        },
+        {
+          'id': 'cardia',
+          'num': 2
         }
       ]
     },
@@ -157,16 +157,16 @@ export class MaterialData {
           'num': 1
         },
         {
+          'id': 'fight-branjetta',
+          'num': 2
+        },
+        {
           'id': 'shyturn',
           'num': 3
         },
         {
           'id': 'rokujo',
           'num': 3
-        },
-        {
-          'id': 'fight-branjetta',
-          'num': 2
         }
       ]
     },
@@ -176,20 +176,20 @@ export class MaterialData {
       'base': 'guardian',
       'list': [
         {
-          'id': 'caocao',
-          'num': 3
-        },
-        {
-          'id': 'theresia',
-          'num': 3
+          'id': 'guardian',
+          'num': 1
         },
         {
           'id': 'fight-guelius',
           'num': 2
         },
         {
-          'id': 'guardian',
-          'num': 1
+          'id': 'caocao',
+          'num': 3
+        },
+        {
+          'id': 'theresia',
+          'num': 3
         }
       ]
     },
@@ -204,20 +204,20 @@ export class MaterialData {
 
       'list': [
         {
-          'id': 'diamond-carbuncle',
-          'num': 2
-        },
-        {
-          'id': 'platinum-carbuncle',
-          'num': 3
+          'id': 'archimedes',
+          'num': 1
         },
         {
           'id': 'god-soul',
           'num': 3
         },
         {
-          'id': 'archimedes',
-          'num': 1
+          'id': 'diamond-carbuncle',
+          'num': 2
+        },
+        {
+          'id': 'platinum-carbuncle',
+          'num': 3
         }
       ]
     },
@@ -227,20 +227,20 @@ export class MaterialData {
       'base': 'branjetta',
       'list': [
         {
-          'id': 'diamond-carbuncle',
-          'num': 2
-        },
-        {
-          'id': 'platinum-carbuncle',
-          'num': 3
+          'id': 'moruana',
+          'num': 1
         },
         {
           'id': 'evil-soul',
           'num': 3
         },
         {
-          'id': 'moruana',
-          'num': 1
+          'id': 'diamond-carbuncle',
+          'num': 2
+        },
+        {
+          'id': 'platinum-carbuncle',
+          'num': 3
         }
       ]
     },
@@ -250,20 +250,20 @@ export class MaterialData {
       'base': 'guelius',
       'list': [
         {
-          'id': 'diamond-carbuncle',
-          'num': 2
-        },
-        {
-          'id': 'platinum-carbuncle',
-          'num': 3
+          'id': 'theresia',
+          'num': 1
         },
         {
           'id': 'dragon-soul',
           'num': 3
         },
         {
-          'id': 'theresia',
-          'num': 1
+          'id': 'diamond-carbuncle',
+          'num': 2
+        },
+        {
+          'id': 'platinum-carbuncle',
+          'num': 3
         }
       ]
     },

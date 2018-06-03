@@ -70,6 +70,15 @@ export class MaterialPage {
     this.addComment(this.commentList, this.base.comment);
 
     this.list.sort((a, b) => {
+      if( a.hierarchy - b.hierarchy === 0 ) {
+        // 親を優先する
+        if( a.parent) {
+          return -1;
+        }if( b.parent) {
+          return 0;
+        }
+        return 0;
+      }
       return a.hierarchy - b.hierarchy;
     });
 
@@ -113,17 +122,19 @@ export class MaterialPage {
         const map = this.listMap[id];
         map.num += num;
       }
+      // ベースキャラ
       const baseId = data.base;
       if (baseId) {
         console.log('base', baseId, num);
-        this.addListNum(baseId, hierarchy);
-        this.addMaterialList(baseId, num, false, hierarchy + 1);
+        this.addListNum(baseId, hierarchy + 0.5);
+        this.addMaterialList(baseId, num, false, hierarchy);
       }
+      // 素材キャラ
       if (data.list) {
         console.log('list', data.list);
         for (let j: number = 0; j < data.list.length; j++) {
           const child = data.list[j];
-          this.addMaterialList(child.id, child.num * num, false, hierarchy + 1);
+          this.addMaterialList(child.id, child.num * num, false, hierarchy + 1 + j*0.01);
         }
       }
     }
@@ -137,6 +148,7 @@ export class MaterialPage {
     const data = this.dataMap[id];
     console.log(id);
     console.log(data);
+
     this.listMap[id] = {
       id: id,
       name: data.name,
@@ -149,9 +161,23 @@ export class MaterialPage {
     if (data.list) {
       this.listMap[id].parent = true;
       this.listMap[id].type = MaterialType.TYPE_PARENT;
+      let childList:string[] = [];
+      if( this.dataMap[id].base ) {
+        const baseObj = this.dataMap[ this.dataMap[id].base ];
+        childList.push("ベース:" + baseObj.name );
+      }
+      for(let i = 0 ; i < data.list.length; i ++ ) {
+        const childId = data.list[i].id
+        const childData = this.dataMap[childId];
+        childList.push(childData.name + "×" + data.list[i].num);
+      }
+
+      this.listMap[id].childList = childList.join(" / ");
+
     } else {
       this.listMap[id].type = data.battleCoin ? MaterialType.TYPE_BATTLE_COIN : MaterialType.TYPE_NOT_BATTLE_COIN;
     }
     this.list.push(this.listMap[id]);
   }
+  public gender:string;
 }
