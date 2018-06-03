@@ -14,8 +14,18 @@ page-material {
     margin: 0;
   }
 
+  img {
+    display:block;
+    margin-right:10px;
+    width: calc(306px / 6);
+    height: calc(270px / 6);
+  }
+
   ul>li{
     font-size:1.2rem;
+  }
+
+  .base-chara{
   }
   .flex-container {
     display: flex;

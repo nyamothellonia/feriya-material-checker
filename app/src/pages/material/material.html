@@ -4,10 +4,21 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>{{base.name}}の素材一覧</ion-title>
+
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
+
+  <div class="base-chara flex-container" padding>
+    <img [src]="'./assets/chara-image-icon/'+base.id + '.png'">
+    <div>
+      <div>
+        {{base.childList}}
+      </div>
+    </div>
+  </div>
 
   <ion-list>
     <ion-item *ngFor="let item of list;" text-wrap>

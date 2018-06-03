@@ -31,6 +31,7 @@ export class MaterialPage {
   public listMap: { [key: string]: CharaData };
   public list: CharaData[];
 
+  public TYPE_START: string = MaterialType.TYPE_START;
   public TYPE_PARENT: string = MaterialType.TYPE_PARENT;
   public TYPE_BATTLE_COIN: string = MaterialType.TYPE_BATTLE_COIN;
   public TYPE_NOT_BATTLE_COIN: string = MaterialType.TYPE_NOT_BATTLE_COIN;
@@ -57,24 +58,24 @@ export class MaterialPage {
     this.dataMap = MaterialData.getDataMap();
 
     this.commentList = [];
-    const baseObj = this.dataMap[this.baseId];
     this.listMap = {};
     this.list = [];
-    this.base = Object.assign(baseObj);
-    this.base.num = 1;
 
-    this.addMaterialList(this.base.id, 1, true);
+    this.addMaterialList(this.baseId, 1, true);
+
+    this.base = Object.assign(this.listMap[this.baseId]);
 
     this.addComment(this.commentList, this.defaultComment);
 
     this.addComment(this.commentList, this.base.comment);
 
     this.list.sort((a, b) => {
-      if( a.hierarchy - b.hierarchy === 0 ) {
+      if (a.hierarchy - b.hierarchy === 0) {
         // 親を優先する
-        if( a.parent) {
+        if (a.parent) {
           return -1;
-        }if( b.parent) {
+        }
+        if (b.parent) {
           return 0;
         }
         return 0;
@@ -109,9 +110,7 @@ export class MaterialPage {
 
     const data = this.dataMap[id];
 
-    if (!start) {
-      this.addListNum(id);
-    }
+    this.addListNum(id, start);
 
     if (data.how) {
       const map = this.listMap[id];
@@ -126,7 +125,7 @@ export class MaterialPage {
       const baseId = data.base;
       if (baseId) {
         console.log('base', baseId, num);
-        this.addListNum(baseId );
+        this.addListNum(baseId);
         this.addMaterialList(baseId, num, false);
       }
       // 素材キャラ
@@ -140,7 +139,7 @@ export class MaterialPage {
     }
   }
 
-  private addListNum(id: string) {
+  private addListNum(id: string, start: boolean = false) {
     if (this.listMap[id]) {
       return;
     }
@@ -161,23 +160,29 @@ export class MaterialPage {
     if (data.list) {
       this.listMap[id].parent = true;
       this.listMap[id].type = MaterialType.TYPE_PARENT;
-      let childList:string[] = [];
-      if( this.dataMap[id].base ) {
-        const baseObj = this.dataMap[ this.dataMap[id].base ];
-        childList.push("ベース:" + baseObj.name );
+      let childList: string[] = [];
+      if (this.dataMap[id].base) {
+        const baseObj = this.dataMap[this.dataMap[id].base];
+        childList.push('ベース:' + baseObj.name);
       }
-      for(let i = 0 ; i < data.list.length; i ++ ) {
-        const childId = data.list[i].id
+      for (let i = 0; i < data.list.length; i++) {
+        const childId = data.list[i].id;
         const childData = this.dataMap[childId];
-        childList.push(childData.name + "×" + data.list[i].num);
+        childList.push(childData.name + '×' + data.list[i].num);
       }
 
-      this.listMap[id].childList = childList.join(" / ");
+      this.listMap[id].childList = childList.join(' / ');
 
     } else {
       this.listMap[id].type = data.battleCoin ? MaterialType.TYPE_BATTLE_COIN : MaterialType.TYPE_NOT_BATTLE_COIN;
     }
-    this.list.push(this.listMap[id]);
+
+    if (start) {
+      this.listMap[id].type = MaterialType.TYPE_START;
+    } else {
+      this.list.push(this.listMap[id]);
+    }
   }
-  public gender:string;
+
+  public gender: string;
 }
