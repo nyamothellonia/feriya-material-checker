@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {CharaData} from '../data/CharaData';
-import {MaterialData} from '../data/MaterialData';
+import {CharaData} from '../../data/CharaData';
+import {MaterialData} from '../../data/MaterialData';
 
 @Component({
   selector: 'page-home',

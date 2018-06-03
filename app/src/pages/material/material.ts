@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {CharaData} from '../data/CharaData';
-import {MaterialData} from '../data/MaterialData';
-import {MaterialType} from '../type/MaterialType';
+import {CharaData} from '../../data/CharaData';
+import {MaterialData} from '../../data/MaterialData';
+import {MaterialType} from '../../type/MaterialType';
 import {Title} from '@angular/platform-browser';
 
 

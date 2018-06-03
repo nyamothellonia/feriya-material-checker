@@ -1,7 +1,7 @@
 <ion-menu [content]="mycontent">
   <ion-content>
     <ion-list>
-      <ion-item menuClose detail-none (click)="toHome()">ホーム</ion-item>
+      <ion-item menuClose detail-none class="button" (click)="toHome()"> <ion-icon name="home"></ion-icon> ホーム</ion-item>
       <ion-item menuClose detail-none class="button" *ngFor="let item of dataList;" (click)="onClick(item)">
         {{item.name}}
       </ion-item>
