@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {IonicPage, NavController} from 'ionic-angular';
 import {CharaData} from '../data/CharaData';
 import {MaterialData} from '../data/MaterialData';
 
@@ -24,7 +24,7 @@ export class HomePage {
     const params = {
       'id': item.id
     };
-    this.navCtrl.push(
+    this.navCtrl.setRoot(
       'page-material',
       params
     );

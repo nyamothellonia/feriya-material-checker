@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {CharaData} from '../data/CharaData';
 import {MaterialData} from '../data/MaterialData';
 import {MaterialType} from '../type/MaterialType';
+import {Title} from '@angular/platform-browser';
 
 
 /**
@@ -41,10 +42,18 @@ export class MaterialPage {
     '闘化駒の場合は進化状態からの素材数を計算しています。',
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private _title: Title, public navCtrl: NavController, public navParams: NavParams) {
+    this.setup();
+  }
 
-    console.log(navParams);
-    this.baseId = navParams.get('id');
+  public ionViewDidEnter() {
+    this._title.setTitle(`${this.base.name}の素材一覧`);
+  }
+
+  private setup() {
+
+    console.log(this.navParams);
+    this.baseId = this.navParams.get('id');
     this.dataMap = MaterialData.getDataMap();
 
     this.commentList = [];
