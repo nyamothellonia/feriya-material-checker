@@ -283,7 +283,7 @@ export class MaterialData {
     'アルキメデス': {
       'hierarchy' : 7,
       'id': 'archimedes',
-      'how': '絶望決戦'
+      'how': '最凶決戦'
     },
     'カルディア': {
       'hierarchy' : 7,
@@ -293,7 +293,7 @@ export class MaterialData {
     '六条御息所': {
       'hierarchy' : 7,
       'id': 'rokujo',
-      'how': '絶望決戦'
+      'how': '最凶決戦'
     },
     'シャイターン': {
       'hierarchy' : 7,
@@ -308,12 +308,12 @@ export class MaterialData {
     'モルアナ': {
       'hierarchy' : 7,
       'id': 'moruana',
-      'how': '絶望決戦'
+      'how': '最凶決戦'
     },
     'テレジア': {
       'hierarchy' : 7,
       'id': 'theresia',
-      'how': '絶望決戦'
+      'how': '最凶決戦'
     },
     'ゴッドソウル': {
       'hierarchy' : 8,
@@ -336,13 +336,13 @@ export class MaterialData {
     'ダイアモンドカーバンクル': {
       'hierarchy' : 9,
       'id': 'diamond-carbuncle',
-      'how': 'バトルコイン',
+      'how': 'バトルコイン / クラスマッチ報酬',
       'battleCoin': 100
     },
     'プラチナカーバンクル': {
       'hierarchy' : 9,
       'id': 'platinum-carbuncle',
-      'how': 'バトルコイン',
+      'how': 'バトルコイン / クラスマッチ報酬',
       'battleCoin': 80
     },
     'ムーニア': {

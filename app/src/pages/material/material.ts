@@ -85,8 +85,8 @@ export class MaterialPage {
 
     for (let i = 0; i < this.list.length; i++) {
       const listData = this.list[i];
-      if (listData.how === 'バトルコイン') {
-        const data = this.dataMap[listData.id];
+      const data = this.dataMap[listData.id];
+      if (data.battleCoin) {
         listData.battleCoin = data.battleCoin;
       }
 
