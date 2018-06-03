@@ -41,6 +41,8 @@ export class MaterialData {
       obj.comment = raw.comment;
       obj.commentChild = raw.commentChild;
       obj.battleCoin = raw.battleCoin;
+      obj.hierarchy = raw.hierarchy;
+
       if (MaterialData.data[key].select) {
         MaterialData._dataList.push(obj);
 
@@ -52,10 +54,12 @@ export class MaterialData {
 
   static readonly data = {
     'フェリヤ': {
+      'hierarchy' : 2,
       'id': 'feriya',
       'how': '白の塔'
     },
     '神フェリヤ': {
+      'hierarchy' : 1,
       'id': 'god-feriya',
       'select': true,
       'base': 'feriya',
@@ -79,6 +83,7 @@ export class MaterialData {
       ]
     },
     '魔フェリヤ': {
+      'hierarchy' : 1,
       'id': 'evil-feriya',
       'select': true,
       'base': 'feriya',
@@ -102,6 +107,7 @@ export class MaterialData {
       ]
     },
     '竜フェリヤ': {
+      'hierarchy' : 1,
       'id': 'dragon-feriya',
       'select': true,
       'base': 'feriya',
@@ -125,6 +131,7 @@ export class MaterialData {
       ]
     },
     '神の守護者': {
+      'hierarchy' : 3,
       'id': 'god-guardian',
       'select': true,
       'base': 'guardian',
@@ -148,6 +155,7 @@ export class MaterialData {
       ]
     },
     '魔の守護者': {
+      'hierarchy' : 3,
       'id': 'evil-guardian',
       'select': true,
       'base': 'guardian',
@@ -171,6 +179,7 @@ export class MaterialData {
       ]
     },
     '竜の守護者': {
+      'hierarchy' : 3,
       'id': 'dragon-guardian',
       'select': true,
       'base': 'guardian',
@@ -194,10 +203,12 @@ export class MaterialData {
       ]
     },
     '守護者': {
+      'hierarchy' : 4,
       'id': 'guardian',
       'how': '白の塔'
     },
     '闘化ムーニア': {
+      'hierarchy' : 5,
       'id': 'fight-munia',
       'select': true,
       'base': 'munia',
@@ -222,6 +233,7 @@ export class MaterialData {
       ]
     },
     '闘化ブランジェッタ': {
+      'hierarchy' : 5,
       'id': 'fight-branjetta',
       'select': true,
       'base': 'branjetta',
@@ -245,6 +257,7 @@ export class MaterialData {
       ]
     },
     '闘化グエリアス': {
+      'hierarchy' : 5,
       'id': 'fight-guelius',
       'select': true,
       'base': 'guelius',
@@ -268,69 +281,84 @@ export class MaterialData {
       ]
     },
     'アルキメデス': {
+      'hierarchy' : 7,
       'id': 'archimedes',
       'how': '絶望決戦'
     },
     'カルディア': {
+      'hierarchy' : 7,
       'id': 'cardia',
       'how': '絶望決戦'
     },
     '六条御息所': {
+      'hierarchy' : 7,
       'id': 'rokujo',
       'how': '絶望決戦'
     },
     'シャイターン': {
+      'hierarchy' : 7,
       'id': 'shyturn',
       'how': '絶望決戦'
     },
     '曹操': {
+      'hierarchy' : 7,
       'id': 'caocao',
       'how': '絶望決戦'
     },
     'モルアナ': {
+      'hierarchy' : 7,
       'id': 'moruana',
       'how': '絶望決戦'
     },
     'テレジア': {
+      'hierarchy' : 7,
       'id': 'theresia',
       'how': '絶望決戦'
     },
     'ゴッドソウル': {
+      'hierarchy' : 8,
       'id': 'god-soul',
       'how': 'バトルコイン',
       'battleCoin': 20
     },
     'エビルソウル': {
+      'hierarchy' : 8,
       'id': 'evil-soul',
       'how': 'バトルコイン',
       'battleCoin': 20
     },
     'ドラゴソウル': {
+      'hierarchy' : 8,
       'id': 'dragon-soul',
       'how': 'バトルコイン',
       'battleCoin': 20
     },
     'ダイアモンドカーバンクル': {
+      'hierarchy' : 9,
       'id': 'diamond-carbuncle',
       'how': 'バトルコイン',
       'battleCoin': 100
     },
     'プラチナカーバンクル': {
+      'hierarchy' : 9,
       'id': 'platinum-carbuncle',
       'how': 'バトルコイン',
       'battleCoin': 80
     },
     'ムーニア': {
+      'hierarchy' : 6,
       'id': 'munia',
       'how': 'バトルコイン',
       'battleCoin': 100
     },
     'ブランジェッタ': {
+      'hierarchy' : 6,
       'id': 'branjetta',
       'how': 'バトルコイン',
       'battleCoin': 100
     },
     'グエリアス': {
+      'hierarchy' : 6,
       'id': 'guelius',
       'how': 'バトルコイン',
       'battleCoin': 100

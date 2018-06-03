@@ -39,7 +39,7 @@ export class MaterialPage {
 
   readonly defaultComment = [
     '※ がついた駒の闘化素材は一覧内に合算されています。',
-    '闘化駒の場合は進化状態からの素材数を計算しています。',
+    '闘化駒の場合は進化状態からの素材数を合算しています。',
   ];
 
   constructor(private _title: Title, public navCtrl: NavController, public navParams: NavParams) {
@@ -63,7 +63,7 @@ export class MaterialPage {
     this.base = Object.assign(baseObj);
     this.base.num = 1;
 
-    this.addMaterialList(this.base.id, 1, true, 1);
+    this.addMaterialList(this.base.id, 1, true);
 
     this.addComment(this.commentList, this.defaultComment);
 
@@ -105,12 +105,12 @@ export class MaterialPage {
     }
   }
 
-  private addMaterialList(id: string, num: number, start: boolean, hierarchy: number) {
+  private addMaterialList(id: string, num: number, start: boolean) {
 
     const data = this.dataMap[id];
 
     if (!start) {
-      this.addListNum(id, hierarchy);
+      this.addListNum(id);
     }
 
     if (data.how) {
@@ -126,21 +126,21 @@ export class MaterialPage {
       const baseId = data.base;
       if (baseId) {
         console.log('base', baseId, num);
-        this.addListNum(baseId, hierarchy + 0.5);
-        this.addMaterialList(baseId, num, false, hierarchy);
+        this.addListNum(baseId );
+        this.addMaterialList(baseId, num, false);
       }
       // 素材キャラ
       if (data.list) {
         console.log('list', data.list);
         for (let j: number = 0; j < data.list.length; j++) {
           const child = data.list[j];
-          this.addMaterialList(child.id, child.num * num, false, hierarchy + 1 + j*0.01);
+          this.addMaterialList(child.id, child.num * num, false);
         }
       }
     }
   }
 
-  private addListNum(id: string, hierarchy: number) {
+  private addListNum(id: string) {
     if (this.listMap[id]) {
       return;
     }
@@ -156,7 +156,7 @@ export class MaterialPage {
       how: data.how,
       comment: data.comment,
       commentChild: data.commentChild,
-      hierarchy: hierarchy
+      hierarchy: data.hierarchy
     };
     if (data.list) {
       this.listMap[id].parent = true;

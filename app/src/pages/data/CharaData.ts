@@ -12,5 +12,5 @@ export class CharaData {
   public type?: string;
   public commentChild?:string[];
   public hierarchy?:number;
-  public childList:string;
+  public childList?:string;
 }
