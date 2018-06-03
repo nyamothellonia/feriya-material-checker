@@ -1,11 +1,10 @@
 import {CharaData} from './CharaData';
 
 export class MaterialData {
-  static _dataMap: CharaData[];
-  static _dataList: { [key: string]: CharaData; };
+  static _dataList: CharaData[];
+  static _dataMap: { [key: string]: CharaData };
 
-  static get DATA_LIST() {
-
+  static getDataList() {
     if (MaterialData._dataList) {
       return MaterialData._dataList;
     }
@@ -15,7 +14,7 @@ export class MaterialData {
     return MaterialData._dataList;
   }
 
-  static get DATA_MAP() {
+  static getDataMap() {
     if (MaterialData._dataMap) {
       return MaterialData._dataMap;
     }
@@ -50,11 +49,19 @@ export class MaterialData {
   }
 
   static readonly data = {
+    'フェリヤ': {
+      'id': 'feriya',
+      'how': '白の塔'
+    },
     '神フェリヤ': {
       'id': 'god-feriya',
       'select': true,
       'base': 'feriya',
       'list': [
+        {
+          'id': 'feriya',
+          'num': 2
+        },
         {
           'id': 'god-guardian',
           'num': 2
@@ -75,6 +82,10 @@ export class MaterialData {
       'base': 'feriya',
       'list': [
         {
+          'id': 'feriya',
+          'num': 2
+        },
+        {
           'id': 'god-guardian',
           'num': 1
         },
@@ -93,6 +104,10 @@ export class MaterialData {
       'select': true,
       'base': 'feriya',
       'list': [
+        {
+          'id': 'feriya',
+          'num': 2
+        },
         {
           'id': 'god-guardian',
           'num': 1
@@ -123,6 +138,10 @@ export class MaterialData {
         {
           'id': 'fight-munia',
           'num': 2
+        },
+        {
+          'id' : 'guardian',
+          'num' : 1
         }
       ]
     },
@@ -165,6 +184,10 @@ export class MaterialData {
         {
           'id': 'fight-guelius',
           'num': 2
+        },
+        {
+          'id': 'guardian',
+          'num': 1
         }
       ]
     },

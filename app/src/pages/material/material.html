@@ -20,8 +20,10 @@
         <img [src]="'./assets/chara-image-icon/'+item.id + '.png'">
       </ion-thumbnail>
 
-      <h2 *ngIf="!item.battleCoin">{{item.name}}({{item.how}}×{{item.num}})</h2>
-      <h2 *ngIf="item.battleCoin >= 0">{{item.name}}({{item.how}}{{item.battleCoin}}×{{item.num}})</h2>
+      <h2 *ngIf="item.battleCoin > 0; then thenBlock; else elseBlock;"></h2>
+      <ng-template #thenBlock>{{item.name}}({{item.how}}{{item.battleCoin}}×{{item.num}})</ng-template>
+      <ng-template #elseBlock>{{item.name}}({{item.how}}×{{item.num}})</ng-template>
+
     </ion-item>
   </ion-list>
 </ion-content>

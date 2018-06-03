@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {CharaData} from './data/CharaData';
-import {MaterialData} from './data/MaterialData';
+import {CharaData} from '../data/CharaData';
+import {MaterialData} from '../data/MaterialData';
 
 @Component({
   selector: 'page-home',
@@ -10,8 +10,8 @@ import {MaterialData} from './data/MaterialData';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-    this.dataList = MaterialData.DATA_LIST;
-    this.dataMap = MaterialData.DATA_MAP;
+    this.dataList = MaterialData.getDataList();
+    this.dataMap = MaterialData.getDataMap();
   }
 
   public dataList: CharaData[];

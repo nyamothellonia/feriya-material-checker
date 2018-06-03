@@ -6,6 +6,6 @@ export class CharaData {
   public comment?: string;
   public list?: CharaData[];
   public select?: boolean;
-  public base?: CharaData;
+  public base?: string;
   public num: number;
 }
