@@ -34,18 +34,31 @@ export class MaterialPage {
   public TYPE_BATTLE_COIN: string = MaterialType.TYPE_BATTLE_COIN;
   public TYPE_NOT_BATTLE_COIN: string = MaterialType.TYPE_NOT_BATTLE_COIN;
 
+  public commentList: string[];
+
+  readonly defaultComment = [
+    '※ がついた駒の闘化素材は一覧内に合算されています。',
+    '闘化駒の場合は進化状態からの素材数を計算しています。',
+  ];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     console.log(navParams);
     this.baseId = navParams.get('id');
     this.dataMap = MaterialData.getDataMap();
 
+    this.commentList = [];
     const baseObj = this.dataMap[this.baseId];
     this.listMap = {};
     this.list = [];
-    this.base = {id: baseObj.id, name: baseObj.name, num: 1};
+    this.base = Object.assign(baseObj);
+    this.base.num = 1;
 
     this.addMaterialList(this.base.id, 1, true);
+
+    this.addComment(this.commentList, this.defaultComment);
+
+    this.addComment(this.commentList, this.base.comment);
 
     for (let i = 0; i < this.list.length; i++) {
       const listData = this.list[i];
@@ -54,9 +67,20 @@ export class MaterialPage {
         listData.battleCoin = data.battleCoin;
       }
 
+      this.addComment(this.commentList, listData.comment);
+      this.addComment(this.commentList, listData.commentChild);
+
     }
     console.log('materialList');
     console.log(this.list);
+  }
+
+  private addComment(commentList: string[], comment: string[]) {
+    if (comment) {
+      for (let j = 0; j < comment.length; j++) {
+        commentList.push(comment[j]);
+      }
+    }
   }
 
   private addMaterialList(id: string, num: number, start: boolean) {
@@ -109,7 +133,9 @@ export class MaterialPage {
       id: id,
       name: data.name,
       num: 0,
-      how: data.how
+      how: data.how,
+      comment: data.comment,
+      commentChild: data.commentChild
     };
     if (data.list) {
       this.listMap[id].parent = true;

@@ -38,6 +38,8 @@ export class MaterialData {
       obj.list = raw.list;
       obj.how = raw.how;
       obj.base = raw.base;
+      obj.comment = raw.comment;
+      obj.commentChild = raw.commentChild;
       obj.battleCoin = raw.battleCoin;
       if (MaterialData.data[key].select) {
         MaterialData._dataList.push(obj);
@@ -199,7 +201,7 @@ export class MaterialData {
       'id': 'fight-munia',
       'select': true,
       'base': 'munia',
-      'comment': '闘化ムーニアの素材は進化ムーニアから闘化した場合の素材数です。',
+
       'list': [
         {
           'id': 'diamond-carbuncle',
@@ -223,7 +225,6 @@ export class MaterialData {
       'id': 'fight-branjetta',
       'select': true,
       'base': 'branjetta',
-      'comment': '闘化ブランジェッタの素材は進化ブランジェッタから闘化した場合の素材数です。',
       'list': [
         {
           'id': 'diamond-carbuncle',
@@ -246,7 +247,6 @@ export class MaterialData {
     '闘化グエリアス': {
       'id': 'fight-guelius',
       'select': true,
-      'comment': '闘化グエリアスの素材数は進化グエリアスから闘化した場合です。',
       'base': 'guelius',
       'list': [
         {
