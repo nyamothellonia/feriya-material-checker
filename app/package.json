@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
-    "build": "ionic-app-scripts build --prod -o ../doc",
+    "build": "ionic-app-scripts build --prod --wwwDir ../docs",
     "lint": "ionic-app-scripts lint",
     "start": "ionic-app-scripts serve",
     "crop-image": "node npm-scripts/crop-image.js"
