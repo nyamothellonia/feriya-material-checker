@@ -63,11 +63,15 @@ export class MaterialPage {
     this.base = Object.assign(baseObj);
     this.base.num = 1;
 
-    this.addMaterialList(this.base.id, 1, true);
+    this.addMaterialList(this.base.id, 1, true, 1);
 
     this.addComment(this.commentList, this.defaultComment);
 
     this.addComment(this.commentList, this.base.comment);
+
+    this.list.sort((a, b) => {
+      return a.hierarchy - b.hierarchy;
+    });
 
     for (let i = 0; i < this.list.length; i++) {
       const listData = this.list[i];
@@ -92,12 +96,12 @@ export class MaterialPage {
     }
   }
 
-  private addMaterialList(id: string, num: number, start: boolean) {
+  private addMaterialList(id: string, num: number, start: boolean, hierarchy: number) {
 
     const data = this.dataMap[id];
 
     if (!start) {
-      this.addListNum(id);
+      this.addListNum(id, hierarchy);
     }
 
     if (data.how) {
@@ -112,25 +116,20 @@ export class MaterialPage {
       const baseId = data.base;
       if (baseId) {
         console.log('base', baseId, num);
-        this.addListNum(baseId);
-        this.addMaterialList(baseId, num, false);
+        this.addListNum(baseId, hierarchy);
+        this.addMaterialList(baseId, num, false, hierarchy + 1);
       }
       if (data.list) {
         console.log('list', data.list);
         for (let j: number = 0; j < data.list.length; j++) {
           const child = data.list[j];
-          this.addMaterialList(child.id, child.num * num, false);
+          this.addMaterialList(child.id, child.num * num, false, hierarchy + 1);
         }
       }
     }
   }
 
-  private addListNum(id: string) {
-
-    if (id === 'fight-guelius') {
-      console.log('stops');
-    }
-
+  private addListNum(id: string, hierarchy: number) {
     if (this.listMap[id]) {
       return;
     }
@@ -144,7 +143,8 @@ export class MaterialPage {
       num: 0,
       how: data.how,
       comment: data.comment,
-      commentChild: data.commentChild
+      commentChild: data.commentChild,
+      hierarchy: hierarchy
     };
     if (data.list) {
       this.listMap[id].parent = true;

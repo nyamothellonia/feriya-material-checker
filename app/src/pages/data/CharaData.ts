@@ -11,5 +11,5 @@ export class CharaData {
   public parent?: boolean;
   public type?: string;
   public commentChild?:string[];
-
+  public hierarchy?:number;
 }
