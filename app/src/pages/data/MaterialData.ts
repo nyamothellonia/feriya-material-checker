@@ -146,11 +146,11 @@ export class MaterialData {
         },
         {
           'id': 'archimedes',
-          'num': 2
+          'num': 3
         },
         {
           'id': 'cardia',
-          'num': 2
+          'num': 3
         }
       ]
     },
