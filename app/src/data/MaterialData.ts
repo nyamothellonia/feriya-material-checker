@@ -130,6 +130,79 @@ export class MaterialData {
         }
       ]
     },
+
+    '闘化ヴィクトリア': {
+      'hierarchy' : 3,
+      'id': 'fight-victoria',
+      'select': true,
+      'base': 'victoria',
+      'list': [
+        {
+          'id': 'fight-munia',
+          'num': 2
+        },
+        {
+          'id': 'archimedes',
+          'num': 2
+        },
+        {
+          'id': 'maniare',
+          'num': 2
+        },
+        {
+          'id': 'cardia',
+          'num': 3
+        }
+      ]
+    },
+    '闘化アズリエル': {
+      'hierarchy' : 3,
+      'id': 'fight-azrael',
+      'select': true,
+      'base': 'azrael',
+      'list': [
+        {
+          'id': 'fight-branjetta',
+          'num': 2
+        },
+        {
+          'id': 'moruana',
+          'num': 2
+        },
+        {
+          'id': 'shyturn',
+          'num': 3
+        },
+        {
+          'id': 'rokujo',
+          'num': 2
+        }
+      ]
+    },
+    '闘化レグス': {
+      'hierarchy' : 1,
+      'id': 'fight-regusu',
+      'select': true,
+      'base': 'regusu',
+      'list': [
+        {
+          'id': 'theresia',
+          'num': 2
+        },
+        {
+          'id': 'wilg',
+          'num': 2
+        },
+        {
+          'id': 'caocao',
+          'num': 3
+        },
+        {
+          'id': 'fight-guelius',
+          'num': 2
+        }
+      ]
+    },
     '神の守護者': {
       'hierarchy' : 3,
       'id': 'god-guardian',
@@ -290,6 +363,11 @@ export class MaterialData {
       'id': 'cardia',
       'how': '絶望決戦'
     },
+    'マニアレ': {
+      'hierarchy' : 7,
+      'id': 'maniare',
+      'how': '最凶決戦'
+    },
     '六条御息所': {
       'hierarchy' : 7,
       'id': 'rokujo',
@@ -313,6 +391,11 @@ export class MaterialData {
     'テレジア': {
       'hierarchy' : 7,
       'id': 'theresia',
+      'how': '最凶決戦'
+    },
+    'ウィルグ': {
+      'hierarchy' : 7,
+      'id': 'wilg',
       'how': '最凶決戦'
     },
     'ゴッドソウル': {
@@ -362,6 +445,22 @@ export class MaterialData {
       'id': 'guelius',
       'how': 'バトルコイン',
       'battleCoin': 100
+    },
+
+    'ヴィクトリア': {
+      'hierarchy' : 5,
+      'id': 'victoria',
+      'how': 'ガチャ'
+    },
+    'アズリエル': {
+      'hierarchy' : 5,
+      'id': 'azrael',
+      'how': 'ガチャ'
+    },
+    'レグス': {
+      'hierarchy' : 5,
+      'id': 'regusu',
+      'how': 'ガチャ'
     }
   };
 }
